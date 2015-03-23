@@ -1,0 +1,13 @@
+alias cdv='cd ~/work-viessmann' #comment
+alias cde='cd ~/work-viessmann/estrella.node'
+alias cdw='cd ~/work'
+alias la='ls -aFCc'
+alias clr='clear'
+alias cla='clear;la'
+alias pshow='ps aux | grep'
+alias rmdir='rm -rf'
+alias h='history'
+alias hg='history | grep'
+alias mkdir='mkdir -pv'
+alias als='cat ~/.aliases/aliases | less'
+alias editals='gedit ~/.aliases/aliases 2>&1 /dev/null && source ~/.aliases/aliases && echo "Reloaded ~/.aliases/aliases"'

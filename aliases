@@ -1,61 +1,20 @@
 #--------------
 # git stuff:
 #--------------
-alias st='git status';
-alias ustg='git reset'; #<pathspec>
-alias ga='git add -A'; #<pathspec>
-alias gres='git checkout'; #<pathspec>
-alias ohshit='git reset --soft HEAD^';
-alias dropit='git reset HEAD^ --hard';
-alias undocommit='git reset --mixed'; #<commit>
-function cm () { git commit -m "[$(git symbolic-ref --short HEAD)]$1"; }
-function acm () { git add -A && git commit -m "[$(git symbolic-ref --short HEAD)]$1"; }
-alias wtf='git log';
-alias wtfg='git log | grep'; #<pattern>
-alias gp='git pull --rebase --prune';
-alias gls='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate';
-alias glds='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short';
-alias gle='git log --oneline --decorate';
-alias gfh='git log -u';#<filename>
-alias gtree='git log --graph --oneline --decorate --all';
-alias setvies='git config user.name "Maciej Kucharski"; git config user.email "kcrm@viessmann.com";'
-alias setme='git config user.name "Maciej Kucharski"; git config user.email "maciek.zir+github@gmail.com";'
-alias gcf='git config --list | grep';#<pattern>
+source ~/.aliases/_git
 #-----------
 # General:
 #-----------
+source ~/.aliases/_general
 
-alias cdv='cd ~/work-viessmann'
-alias cde='cd ~/work-viessmann/estrella.node'
-alias cdw='cd ~/work'
-alias la='ls -aFCc'
-alias clr='clear'
-alias cla='clear;la'
-alias pshow='ps aux | grep'
-alias rmdir='rm -rf'
-alias h='history'
-alias hg='history | grep'
-alias mkdir='mkdir -pv'
-alias als='cat ~/.aliases/aliases | less'
-alias editals='gedit ~/.aliases/aliases 2>&1 /dev/null && source ~/.aliases/aliases && echo "Reloaded ~/.aliases/aliases"'
 
 #-----------
 # Searching:
 #-----------
-# ff:  to find a file under the current directory
-ff () { /usr/bin/find . -name "$@" ; }
-# ffs: to find a file whose name starts with a given string
-ffs () { /usr/bin/find . -name "$@"'*' ; }
-# ffe: to find a file whose name ends with a given string
-ffe () { /usr/bin/find . -name '*'"$@" ; }
-
-# grepfind: to grep through files found by find, e.g. grepf pattern '*.c'
-# note that 'grep -r pattern dir_name' is an alternative if want all files 
-grepfind () { find . -type f -name "$2" -print0 | xargs -0 grep "$1" ; }
-# I often can't recall what I named this alias, so make it work either way: 
-alias findgrep='grepfind'
+source ~/.aliases/_searching
 
 
 #--------------
 # Common typos:
 #--------------
+source ~/.aliases/_typos
