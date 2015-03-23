@@ -36,8 +36,8 @@ alias rmdir='rm -rf'
 alias h='history'
 alias hg='history | grep'
 alias mkdir='mkdir -pv'
-alias als='cat ~/.aliases | less'
-alias editals='gedit ~/.aliases 2>&1 /dev/null && source ~/.aliases && echo "Reloaded ~/.aliases"'
+alias als='cat ~/.aliases/aliases | less'
+alias editals='gedit ~/.aliases/aliases 2>&1 /dev/null && source ~/.aliases/aliases && echo "Reloaded ~/.aliases/aliases"'
 
 #-----------
 # Searching:
