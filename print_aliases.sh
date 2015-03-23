@@ -9,8 +9,14 @@ NC='\033[0m' # No Color
 reg="(alias )([a-zA-Z0-9]+)(='(.+)')?(\s#.+)?"
 fn_reg="(function )?([a-zA-Z0-9]+)(\s\(\)\s+\{\s+(.+)\s+\})"
 
+tmp_file_reg="~$"
+
 for node in "$ALIAS_DIR"/_*
 do
+    if [[ $node =~ $tmp_file_reg ]];
+    then
+        continue;
+    fi
     echo -e "${red}$(echo $node | grep -Po '[a-zA-Z0-9]+$')${NC}"
     while read ALIAS
     do
@@ -24,5 +30,5 @@ do
         fi
 
     done < $node
-    echo -e ''
+    echo -e ""
 done
