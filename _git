@@ -18,4 +18,4 @@ alias gtree='git log --graph --oneline --decorate --all';
 alias setvies='git config user.name "Maciej Kucharski"; git config user.email "kcrm@viessmann.com";'
 alias setme='git config user.name "Maciej Kucharski"; git config user.email "maciek.zir+github@gmail.com";'
 alias gcf='git config --list | grep';#<pattern>
-
+alias amendall='git add -A && git --amend --no-edit';
