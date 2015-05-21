@@ -11,4 +11,4 @@ alias hg='history | grep'
 alias mkdir='mkdir -pv'
 alias als='~/.aliases/print_aliases.sh | less'
 alias editals='~/.aliases/edit_aliases.sh'
-
+alias ta='less +F'
