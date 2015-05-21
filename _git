@@ -2,6 +2,8 @@ alias st='git status';
 alias ustg='git reset'; #<pathspec>
 alias ga='git add -A'; #<pathspec>
 alias gres='git checkout'; #<pathspec>
+alias gb='git checkout'; #<pathspec>
+function gnb () { git checkout -b $1 && git branch --set-upstream-to origin $1; } #<pathspec>
 alias ohshit='git reset --soft HEAD^';
 alias dropit='git reset HEAD^ --hard';
 alias undocommit='git reset --mixed'; #<commit>
@@ -18,4 +20,4 @@ alias gtree='git log --graph --oneline --decorate --all';
 alias setvies='git config user.name "Maciej Kucharski"; git config user.email "kcrm@viessmann.com";'
 alias setme='git config user.name "Maciej Kucharski"; git config user.email "maciek.zir+github@gmail.com";'
 alias gcf='git config --list | grep';#<pattern>
-alias amendall='git add -A && git --amend --no-edit';
+alias amendall='git add -A && git commit --amend --no-edit';
