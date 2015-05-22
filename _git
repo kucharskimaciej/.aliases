@@ -3,7 +3,7 @@ alias ustg='git reset'; #<pathspec>
 alias ga='git add -A'; #<pathspec>
 alias gres='git checkout'; #<pathspec>
 alias gb='git checkout'; #<pathspec>
-function gnb () { git checkout -b $1 && git branch --set-upstream-to origin $1; } #<pathspec>
+function gnb () { git checkout -b $1 && git branch --set-upstream-to origin/$1; } #<pathspec>
 alias ohshit='git reset --soft HEAD^';
 alias dropit='git reset HEAD^ --hard';
 alias undocommit='git reset --mixed'; #<commit>
