@@ -1,20 +1,21 @@
+ALSROOT=$(dirname $0)
 #--------------
 # git stuff:
 #--------------
-source ~/.aliases/_git
+source $ALSROOT/_git
 #-----------
 # General:
 #-----------
-source ~/.aliases/_general
+source $ALSROOT/_general
 
 
 #-----------
 # Searching:
 #-----------
-source ~/.aliases/_searching
+source $ALSROOT/_searching
 
 
 #--------------
 # Common typos:
 #--------------
-source ~/.aliases/_typos
+source $ALSROOT/_typos
