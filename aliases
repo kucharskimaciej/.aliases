@@ -19,3 +19,8 @@ source $ALSROOT/_searching
 # Common typos:
 #--------------
 source $ALSROOT/_typos
+
+#-------------
+# Private commands (not synced with git)
+# ------------
+source $ALSROOT/_private
