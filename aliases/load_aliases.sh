@@ -1,26 +1,25 @@
-ALSROOT=$(dirname $0)
 #--------------
 # git stuff:
 #--------------
-source $ALSROOT/_git
+source $SETTINGS_ROOT/aliases/_git
 #-----------
 # General:
 #-----------
-source $ALSROOT/_general
+source $SETTINGS_ROOT/aliases/_general
 
 
 #-----------
 # Searching:
 #-----------
-source $ALSROOT/_searching
+source $SETTINGS_ROOT/aliases/_searching
 
 
 #--------------
 # Common typos:
 #--------------
-source $ALSROOT/_typos
+source $SETTINGS_ROOT/aliases/_typos
 
 #-------------
 # Private commands (not synced with git)
 # ------------
-source $ALSROOT/_private
+source $SETTINGS_ROOT/aliases/_private

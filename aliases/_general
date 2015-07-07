@@ -1,3 +1,4 @@
+alias resource='source $HOME/.zshrc'
 alias cdv='cd ~/work-viessmann' #comment
 alias cde='cd ~/work-viessmann/estrella.node'
 alias cdw='cd ~/work'
@@ -9,6 +10,6 @@ alias rmdir='rm -rf'
 alias h='history'
 alias hg='history | grep'
 alias mkdir='mkdir -pv'
-alias als='~/.aliases/print_aliases.sh | less'
-alias editals='~/.aliases/edit_aliases.sh'
+alias als='$SETTINGS_ROOT/aliases/print_aliases.sh | less'
+alias editals='$SETTINGS_ROOT/aliases/edit_aliases.sh'
 alias ta='less +F'

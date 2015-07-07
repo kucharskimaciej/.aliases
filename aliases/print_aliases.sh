@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ALIAS_DIR=~/.aliases
+ALIAS_DIR=$(dirname $0)
 
 # colors
 red='\033[0;31m'
