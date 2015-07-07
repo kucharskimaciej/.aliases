@@ -1,4 +1,7 @@
-source %:p:h/types/typescript
+let g:override_spf13_bundles = 1
+let s:rootpath = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+exec ':source'. s:rootpath .'/types/typescript.vim'
+exec ':source'. s:rootpath .'/plugins/multi_cursor.vim'
 
 "mapping leader to space
 let mapleader = "\<Space>"

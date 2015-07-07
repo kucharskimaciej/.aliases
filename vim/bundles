@@ -1,0 +1,141 @@
+set nocompatible
+set background=dark
+
+filetype off
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+
+
+" Dependencies
+
+Bundle 'gmarik/vundle'
+        Bundle 'MarcWeber/vim-addon-mw-utils'
+        Bundle 'tomtom/tlib_vim'
+        if executable('ag')
+            Bundle 'mileszs/ack.vim'
+            let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+        elseif executable('ack-grep')
+            let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+            Bundle 'mileszs/ack.vim'
+        elseif executable('ack')
+            Bundle 'mileszs/ack.vim'
+        endif
+
+
+
+if !exists('g:spf13_bundle_groups')
+	let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'javascript', 'html', 'misc']
+endif
+
+
+" General
+if count(g:spf13_bundle_groups, 'general')
+	Bundle 'scrooloose/nerdtree'
+	Bundle 'altercation/vim-colors-solarized'
+	Bundle 'spf13/vim-colors'
+	Bundle 'tpope/vim-surround'
+	Bundle 'tpope/vim-repeat'
+	Bundle 'jiangmiao/auto-pairs'
+	Bundle 'ctrlpvim/ctrlp.vim'
+	Bundle 'tacahiroy/ctrlp-funky'
+	Bundle 'terryma/vim-multiple-cursors'
+	Bundle 'vim-scripts/sessionman.vim'
+	Bundle 'matchit.zip'
+	Bundle 'bling/vim-bufferline'
+	Bundle 'Lokaltog/vim-easymotion'
+	Bundle 'jistr/vim-nerdtree-tabs'
+	Bundle 'flazz/vim-colorschemes'
+	Bundle 'mbbill/undotree'
+	Bundle 'nathanaelkane/vim-indent-guides'
+	if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
+		Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+	elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
+		Bundle 'Lokaltog/vim-powerline'
+	else
+		Bundle 'bling/vim-airline'
+	endif
+
+	if !exists('g:spf13_no_views')
+		Bundle 'vim-scripts/restore_view.vim'
+	endif
+	Bundle 'mhinz/vim-signify'
+	Bundle 'tpope/vim-abolish.git'
+	Bundle 'osyo-manga/vim-over'
+	Bundle 'kana/vim-textobj-user'
+	Bundle 'kana/vim-textobj-indent'
+	Bundle 'gcmt/wildfire.vim'
+endif
+
+
+" Writing
+if count(g:spf13_bundle_groups, 'writing')
+	Bundle 'reedes/vim-litecorrect'
+	Bundle 'reedes/vim-textobj-sentence'
+	Bundle 'reedes/vim-textobj-quote'
+	Bundle 'reedes/vim-wordy'
+endif
+
+
+" Programming in general
+if count(g:spf13_bundle_groups, 'programming')
+	Bundle 'scrooloose/syntastic'
+	Bundle 'tpope/vim-fugitive'
+	Bundle 'mattn/webapi-vim'
+	Bundle 'mattn/gist-vim'
+	Bundle 'scrooloose/nerdcommenter'
+	Bundle 'tpope/vim-commentary'
+	Bundle 'godlygeek/tabular'
+endif
+
+
+" Autocomplete
+
+if count(g:spf13_bundle_groups, 'snipmate')
+    Bundle 'garbas/vim-snipmate'
+    Bundle 'honza/vim-snippets'
+    " Source support_function.vim to support vim-snippets.
+    if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
+        source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
+    endif
+elseif count(g:spf13_bundle_groups, 'youcompleteme')
+    Bundle 'Valloric/YouCompleteMe'
+    Bundle 'SirVer/ultisnips'
+    Bundle 'honza/vim-snippets'
+elseif count(g:spf13_bundle_groups, 'neocomplcache')
+    Bundle 'Shougo/neocomplcache'
+    Bundle 'Shougo/neosnippet'
+    Bundle 'Shougo/neosnippet-snippets'
+    Bundle 'honza/vim-snippets'
+elseif count(g:spf13_bundle_groups, 'neocomplete')
+    Bundle 'Shougo/neocomplete.vim.git'
+    Bundle 'Shougo/neosnippet'
+    Bundle 'Shougo/neosnippet-snippets'
+    Bundle 'honza/vim-snippets'
+endif
+
+
+
+" Javascript
+if count(g:spf13_bundle_groups, 'javascript')
+	Bundle 'elzr/vim-json'
+	Bundle 'pangloss/vim-javascript'
+	Bundle 'briancollins/vim-jst'
+	Bundle 'kchmck/vim-coffee-script'
+	Bundle 'leafgarland/typescript-vim'
+endif
+
+
+" HTML and CSS
+if count(g:spf13_bundle_groups, 'html')
+	Bundle 'amirh/HTML-AutoCloseTag'
+	Bundle 'hail2u/vim-css3-syntax'
+	Bundle 'gorodinskiy/vim-coloresque'
+	Bundle 'tpope/vim-haml'
+	Bundle 'groenewege/vim-less'
+endif
+
+
+if filereadable(expand("~/.vimrc.bundles.fork"))
+	source ~/.vimrc.bundles.fork
+endif
