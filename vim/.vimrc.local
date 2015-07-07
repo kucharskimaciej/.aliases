@@ -1,0 +1,46 @@
+source %:p:h/types/typescript
+
+"mapping leader to space
+let mapleader = "\<Space>"
+
+ "copy paste with system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+ "reformat paragraph
+vmap Q gq
+nmap Q gqap
+
+ "clear search history
+nmap <silent> <Leader>/ :nohlsearch<CR>
+
+ "change tabs
+noremap <S-l> gt
+noremap <S-h> gT
+
+ "change splits
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+
+noremap <leader>q :q<cr>
+nnoremap <leader>s :w<cr>
+inoremap <leader>s <C-c>:w<cr>
+
+autocmd InsertEnter * silent! :set norelativenumber
+autocmd InsertLeave,BufNewFile,VimEnter * silent! :set relativenumber
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
