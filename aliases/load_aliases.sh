@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 #--------------
 # git stuff:
 #--------------
@@ -22,4 +24,7 @@ source $SETTINGS_ROOT/aliases/_typos
 #-------------
 # Private commands (not synced with git)
 # ------------
-source $SETTINGS_ROOT/aliases/_private
+if [[ -f $SETTINGS_ROOT/aliases/_private ]];
+then
+    source $SETTINGS_ROOT/aliases/_private;
+fi
