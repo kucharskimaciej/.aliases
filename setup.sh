@@ -1,6 +1,9 @@
 #/bin/sh
 SCRIPTPATH=$( cd $(dirname $0) ; pwd -P  )
 git config --global core.excludesfile $SCRIPTPATH/global_ignore
+git config --global user.email "maciek.zir@gmail.com"
+git config --global user.name "Maciej Kucharski"
+git config --global push.default simple
 
 # nvm
 sh -c "$(curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh)"
