@@ -1,8 +1,10 @@
 #!/usr/bin/python3.4
-import shelve, pyperclip
+import shelve
+import pyperclip
+import os
 
-def get_shelf(name='mcb'):
-    return shelve.open('mcb')
+def get_shelf(name='mcb', location=os.path.dirname(__file__)):
+    return shelve.open(os.path.join(location, name))
 
 def get(key):
     with get_shelf() as shelf:
@@ -69,4 +71,3 @@ if __name__ == "__main__":
         command_map[command]()
     except Exception as ex:
         print(ex)
-
