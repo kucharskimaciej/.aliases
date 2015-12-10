@@ -25,6 +25,9 @@ def list_all():
     with get_shelf() as shelf:
         print(('\n').join(shelf.keys()))
 
+def delete_all():
+    with get_shelf() as shelf:
+        shelf.clear()
 
 if __name__ == "__main__":
     import sys
@@ -34,7 +37,7 @@ if __name__ == "__main__":
     except ValueError:
         command = sys.argv[1]
         key = None
-        if command not in ['list', 'all']:
+        if command not in ['list', 'all', 'clean']:
             print('wrong number of args')
             sys.exit()
 
@@ -45,7 +48,8 @@ if __name__ == "__main__":
         'del':      lambda: delete(key),
         'get':      lambda: get(key),
         'list':     lambda: list_all(),
-        'all':      lambda: list_all()
+        'all':      lambda: list_all(),
+        'clean':    lambda: delete_all()
     }
 
     command_map[command]()
