@@ -8,8 +8,9 @@ def get(key):
     with get_shelf() as shelf:
         try:
             pyperclip.copy(shelf[key])
+
         except KeyError:
-            print('no such key')
+            raise Exception('no such key:', key)
 
 def save(key):
     with get_shelf() as shelf:
@@ -19,11 +20,12 @@ def delete(key):
     with get_shelf() as shelf:
         try:
             del shelf[key]
+
         except KeyError: pass
 
 def list_all():
     with get_shelf() as shelf:
-        print(('\n').join(shelf.keys()))
+        if len(shelf.keys()): print(('\n').join(shelf.keys()))
 
 def delete_all():
     with get_shelf() as shelf:
@@ -31,16 +33,6 @@ def delete_all():
 
 if __name__ == "__main__":
     import sys
-
-    try:
-        command, key = sys.argv[1:]
-    except ValueError:
-        command = sys.argv[1]
-        key = None
-        if command not in ['list', 'all', 'clean']:
-            print('wrong number of args')
-            sys.exit()
-
 
     command_map = {
         'save':     lambda: save(key),
@@ -52,4 +44,29 @@ if __name__ == "__main__":
         'clean':    lambda: delete_all()
     }
 
-    command_map[command]()
+    try:
+        command, key = sys.argv[1:]
+
+    except ValueError:
+        try:
+            command = sys.argv[1]
+            key = None
+
+            if command not in ['list', 'all', 'clean']:
+                raise Exception('wrong numer of args for the command')
+
+        except IndexError as err:
+            command_list = (', ').join(command_map.keys())
+            print('Specify a command. One of:', command_list)
+            sys.exit()
+
+        except Exception as ex:
+            print(ex)
+            sys.exit()
+
+
+    try:
+        command_map[command]()
+    except Exception as ex:
+        print(ex)
+
