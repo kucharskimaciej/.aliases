@@ -12,18 +12,15 @@ def backup(fn):
 class Hosts:
     def __init__(self,
                  hosts_path='/etc/hosts',
-                 backup_file_path='hosts.bkp',
+                 backup_file_path='./hosts.bkp',
                  blocked_url='127.0.0.1',
-                 bare_hosts_path='hosts_bare',
                  script_path='./'):
 
         self.hosts_path = hosts_path
-        self.backup_file_path = backup_file_path
+        self.backup_file_path = '%s%s' % (script_path, backup_file_path)
         self.blocked_url = blocked_url
-        self.bare_hosts_path = bare_hosts_path
-        self.script_path = script_path
 
-        self.tmp_path = '%stmp' % self.script_path
+        self.tmp_path = '%stmp' % script_path
 
     def make_backup(self, filename=None):
         if filename is None:
@@ -34,11 +31,10 @@ class Hosts:
     def restore(self):
         copyfile(self.backup_file_path, self.hosts_path)
 
-    @backup
     def update(self, blocked_sites):
         if os.path.exists(self.tmp_path): os.remove(self.tmp_path)
 
-        copyfile(self.bare_hosts_path, self.tmp_path)
+        copyfile(self.backup_file_path, self.tmp_path)
 
         with open(self.tmp_path, 'a+') as file:
             file.write('\n')
@@ -48,3 +44,6 @@ class Hosts:
 
         copyfile(self.tmp_path, self.hosts_path)
         os.remove(self.tmp_path)
+
+    def backup_ready(self):
+        return os.path.exists(self.backup_file_path)

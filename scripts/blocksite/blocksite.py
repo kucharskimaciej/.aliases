@@ -5,21 +5,22 @@ from os import path
 
 
 def current_path():
-    return path.dirname(path.realpath(__file__))
+    return path.dirname(path.realpath(__file__)) + '/'
 
 if __name__ == "__main__":
     import sys
     script_path = current_path()
 
-    hosts = Hosts(backup_file_path='%s/hosts.bkp' % script_path, bare_hosts_path='%s/hosts.base' % script_path)
-    sites = BlockedSites(hosts, filename='%s/sites' % script_path)
+    hosts = Hosts(backup_file_path='./hosts.bkp', script_path=script_path)
+    sites = BlockedSites(hosts, filename='sites')
+
+    if not hosts.backup_ready():
+        print('creating hosts.bkp')
+        hosts.make_backup()
 
     command_map = {
         'restore': lambda: hosts.restore(),
-        'backup': lambda: hosts.make_backup(),
         'list': lambda: sites.list(),
-        'add': lambda: sites.add(args),
-        'remove': lambda: sites.remove(args),
         'update': lambda: hosts.update(sites.sites.values()),
         'unblock': lambda: sites.unblock(args[0], args[1])
     }
