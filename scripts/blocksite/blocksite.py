@@ -12,7 +12,7 @@ if __name__ == "__main__":
     script_path = current_path()
 
     hosts = Hosts(backup_file_path='./hosts.bkp', script_path=script_path)
-    sites = BlockedSites(hosts, filename='sites')
+    sites = BlockedSites(hosts, filename='%ssites' % script_path)
 
     if not hosts.backup_ready():
         print('creating hosts.bkp')
