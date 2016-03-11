@@ -17,5 +17,5 @@ alias apti='sudo apt-get install'
 alias aptinstall='apti'
 alias mcb='python3 $SETTINGS_ROOT/scripts/clipboard_helper.py'
 alias fama='python3 $SETTINGS_ROOT/scripts/amazon_search/amazon_search.py >> /dev/null'
-alias blocksite='sudo $SETTINGS_ROOT/scripts/blocksite/blocksite.py'
-lazynow() { blocksite $* & disown }
+alias blocksite='sudo $SETTINGS_ROOT/scripts/blocksite/runner.sh'
+lazynow() { (nohup sudo $SETTINGS_ROOT/scripts/blocksite/runner.sh unblock $* &> /dev/null 2>&1&) }
