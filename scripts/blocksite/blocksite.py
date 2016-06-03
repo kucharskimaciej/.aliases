@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from modules.hosts import Hosts
 from modules.blocked_sites import BlockedSites
 from os import path
