@@ -1,6 +1,5 @@
 alias resource='source $HOME/.zshrc'
-alias cdv='cd ~/work-viessmann' #comment
-alias cde='cd ~/work-viessmann/estrella.node'
+alias cdf='cd ~/work-viessmann' #comment
 alias cdw='cd ~/work'
 alias la='ls -aFCc'
 alias clr='clear'
